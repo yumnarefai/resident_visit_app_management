@@ -1,0 +1,36 @@
+classDiagram
+    class Resident{
+        +int id
+        +str name
+        +str phone_number
+        +str email
+        +__init__(id: int, name: str, phone_number: str, email: str)
+        +schedule_visit(visitor: Visitor)
+        +approve_visit(visit: Visit)
+    }
+    class Visitor{
+        +int id
+        +str name
+        +str phone_number
+        +str nic
+        +str vehicle_number
+        +__init__(id: int, name: str, phone_number: str, nic: str, vehicle_number: str)
+    }
+    class Visit{
+        +int id
+        +datetime scheduled_time
+        +bool is_approved
+        +Resident resident
+        +Visitor visitor
+        +__init__(id: int, scheduled_time: datetime, is_approved: bool, resident: Resident, visitor: Visitor)
+    }
+    class Security{
+        +int id
+        +str name
+        +__init__(id: int, name: str)
+        +search_visit(visitor: Visitor)
+        +create_visit(visitor: Visitor, resident: Resident)
+    }
+    Resident "1" -- "*" Visit: schedules
+    Visitor "1" -- "*" Visit: visits
+    Security "1" -- "*" Visit: manages

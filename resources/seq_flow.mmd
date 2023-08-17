@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant R as Resident
+    participant V as Visitor
+    participant S as Security
+    participant Vi as Visit
+    R->>V: schedule_visit(visitor)
+    Note over R,V: Visit is scheduled
+    S->>V: search_visit(visitor)
+    Note over S,V: Visit is found
+    R->>Vi: approve_visit(visit)
+    Note over R,Vi: Visit is approved
+    S->>Vi: create_visit(visitor, resident)
+    Note over S,Vi: Actual visit is created

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Visit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Schedule a Visit</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('schedule_visit') }}" method="post">
+            <label for="resident_id">Resident ID</label>
+            <input type="number" id="resident_id" name="resident_id" required>
+            <label for="visitor_name">Visitor Name</label>
+            <input type="text" id="visitor_name" name="visitor_name" required>
+            <label for="visitor_phone_number">Visitor Phone Number</label>
+            <input type="text" id="visitor_phone_number" name="visitor_phone_number" required>
+            <label for="visitor_nic">Visitor NIC</label>
+            <input type="text" id="visitor_nic" name="visitor_nic" required>
+            <label for="visitor_vehicle_number">Visitor Vehicle Number</label>
+            <input type="text" id="visitor_vehicle_number" name="visitor_vehicle_number" required>
+            <button type="submit">Schedule Visit</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2022 Resident Visit Management</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
